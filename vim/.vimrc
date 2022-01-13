@@ -95,3 +95,5 @@ nnoremap ) :<C-u>vertical resize +5<CR>
 nnoremap + :<C-u>res +5<CR>
 nnoremap _ :<C-u>res -5<CR>
 
+"""fern.vim
+nnoremap <silent> ;f :<C-u>Fern . -drawer -toggle<CR>
