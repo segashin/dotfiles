@@ -1,13 +1,1 @@
-# ============================================================================
-# FILE: session.py
-# AUTHOR: Shougo Matsushita <Shougo.Matsu at gmail.com>
-# License: MIT license
-# ============================================================================
-
-import typing
-
-
-class Session(typing.NamedTuple):
-    name: str = ''
-    path: str = ''
-    opened_candidates: typing.List[str] = []
+/home/segas/dotfiles/nvim/dein/repos/github.com/Shougo/defx.nvim/rplugin/python3/defx/session.py

@@ -1,2 +1,1 @@
-import pkg_resources
-pkg_resources.declare_namespace(__name__)
+/home/segas/dotfiles/nvim/dein/repos/github.com/ryanoasis/vim-devicons/pythonx/vim_devicons/powerline/__init__.py

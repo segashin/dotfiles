@@ -1,5 +1,1 @@
-pynvim
-pytest
-flake8
-mypy
-vim-vint
+/home/segas/dotfiles/nvim/dein/repos/github.com/Shougo/defx.nvim/test/requirements.txt

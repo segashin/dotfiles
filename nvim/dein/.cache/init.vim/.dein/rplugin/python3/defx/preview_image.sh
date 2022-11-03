@@ -1,4 +1,1 @@
-{
-    declare -pA addCommand=([action]="add" [identifier]="defx_preview" [x]="$2" [y]="$3" [width]="$4" [path]="$1")
-    sleep 5
-} | ueberzug layer --parser bash
+/home/segas/dotfiles/nvim/dein/repos/github.com/Shougo/defx.nvim/rplugin/python3/defx/preview_image.sh
