@@ -6,14 +6,43 @@ vim.g.mapleader = ';'
 -- jj to exit insert mode
 keymap.set('i', 'jj', '<ESC>', {noremap = true, silent = true})
 -- ECS twice to stop highlight
-keymap.set('n', '<ESC><ESC>', ':<C-u>nohlsearch<CR><ESC>', {noremap = true, silent = true})
+keymap.set('n', '<ESC><ESC>', ':<C-u>call clearmatches()<CR><ESC>:<C-u>nohlsearch<CR><ESC>', {noremap = true, silent = true})
 
 -- Space twice to highlight cword
-vim.cmd('highlight cword ctermbg=blue guibg=blue')
+vim.cmd('highlight cword ctermbg=blue guibg=MediumSlateBlue')
 keymap.set(
   'n',
   '<Space><Space>',
   [[':<C-u>match ' . 'cword /' . expand('<cword>') . '/ <CR>']],
+  {noremap = true, silent = false, expr = true}
+)
+
+-- Leader + num to highlight cword
+-- 1 red
+vim.cmd('highlight cword1 ctermbg=red guibg=VioletRed4')
+keymap.set(
+  'n',
+  '<Leader>1',
+  [[":<C-u>call matchadd('cword1', '" . expand('<cword>') . "') <CR>"]],
+  -- [[':<C-u>2match ' . 'cword1 /' . expand('<cword>') . '/ <CR>']],
+  {noremap = true, silent = false, expr = true}
+)
+-- 2 green
+vim.cmd('highlight cword2 ctermbg=green guibg=DarkOliveGreen')
+keymap.set(
+  'n',
+  '<Leader>2',
+  [[":<C-u>call matchadd('cword2', '" . expand('<cword>') . "') <CR>"]],
+  -- [[':<C-u>3match ' . 'cword2 /' . expand('<cword>') . '/ <CR>']],
+  {noremap = true, silent = false, expr = true}
+)
+-- 3 yellow
+vim.cmd('highlight cword3 ctermbg=yellow guibg=gold4')
+keymap.set(
+  'n',
+  '<Leader>3',
+  [[":<C-u>call matchadd('cword3', '" . expand('<cword>') . "') <CR>"]],
+  -- [[':<C-u>4match ' . 'cword3 /' . expand('<cword>') . '/ <CR>']],
   {noremap = true, silent = false, expr = true}
 )
 
