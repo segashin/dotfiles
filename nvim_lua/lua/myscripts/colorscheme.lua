@@ -1,2 +1,3 @@
-print('setting colorscheme')
-vim.cmd("colorscheme nightfox")
+local colorscheme = 'nightfox'
+print('setting colorscheme ' .. colorscheme)
+vim.cmd("colorscheme " .. colorscheme)
