@@ -98,14 +98,14 @@ require('vim.lsp.protocol').CompletionItemKind = {
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Python
-lspconfig.pylsp.setup({
-  capabilities = capabilities
-})
-
--- Lua
-lspconfig.sumneko_lua.setup({
-  capabilities = capabilities
-})
+-- lspconfig.pylsp.setup({
+--   capabilities = capabilities
+-- })
+-- 
+-- -- Lua
+-- lspconfig.sumneko_lua.setup({
+--   capabilities = capabilities
+-- })
 
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

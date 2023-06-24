@@ -16,6 +16,7 @@ vim.keymap.set('n', '<leader>fv',
     telescope.extensions.file_browser.file_browser({
       hidden = true,
       initial_mode = "normal",
+      path = "%:p:h"
     })
   end
 )
@@ -27,7 +28,7 @@ telescope.setup {
     mappings = {
       n = {
         ["q"] = actions.close,
-        ["t"] = actions.select_tab,
+        -- ["t"] = actions.select_tab,
         ["h"] = "which_key",
       },
     },

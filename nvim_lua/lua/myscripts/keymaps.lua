@@ -55,8 +55,12 @@ keymap.set('n', '<Leader>vs', ':<C-u>wincmd v<CR>', {noremap = true, silent = tr
 keymap.set('n', '<Leader>oo', ':<C-u>wincmd o<CR>', {noremap = true, silent = true})
 
 -- tab move
-keymap.set('n', '}', 'gt', {noremap = true, silent = true})
-keymap.set('n', '{', 'gT', {noremap = true, silent = true})
+-- keymap.set('n', '}', 'gt', {noremap = true, silent = true})
+-- keymap.set('n', '{', 'gT', {noremap = true, silent = true})
+keymap.set('n', '}', ':<C-u>BufferNext<CR>', {noremap = true, silent = true})
+keymap.set('n', '{', ':<C-u>BufferPrevious<CR>', {noremap = true, silent = true})
+keymap.set('n', 'gt', ':<C-u>BufferNext<CR>', {noremap = true, silent = true})
+keymap.set('n', 'gT', ':<C-u>BufferPrevious<CR>', {noremap = true, silent = true})
 
 -- wincmd change window size
 keymap.set('n', '(', ':<C-u>vertical resize -5<CR>', {noremap = true, silent = true})
