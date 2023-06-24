@@ -70,7 +70,7 @@ keymap.set('n', '+', ':<C-u>res +5<CR>', {noremap = true, silent = true})
 keymap.set('n', '-', ':<C-u>res -5<CR>', {noremap = true, silent = true})
 
 -- lsp
-keymap.set('n', '<Leader>d', ':<C-u>lua vim.diagnostic.open_float()<CR>', {noremap = true, silent = true})
-keymap.set('n', '<Leader>s', ':<C-u>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
+keymap.set('n', '<Leader>aa', ':<C-u>lua vim.diagnostic.open_float()<CR>', {noremap = true, silent = true})
+keymap.set('n', '<Leader>gg', ':<C-u>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
 
 
