@@ -18,8 +18,9 @@ keymap.set(
 )
 
 -- Leader + num to highlight cword
-function highlightCword(groupNum, ctermbgColor, guibgColor, cWORD)
+local function highlightCword(groupNum, ctermbgColor, guibgColor, cWORD)
   local groupName = "cword" .. groupNum
+  local cword
   if cWORD then cword = 'cWORD' else cword = 'cword' end
   vim.cmd("highlight " .. groupName .. " ctermbg=" .. ctermbgColor .. " guibg=" .. guibgColor)
   keymap.set(
@@ -67,4 +68,9 @@ keymap.set('n', '(', ':<C-u>vertical resize -5<CR>', {noremap = true, silent = t
 keymap.set('n', ')', ':<C-u>vertical resize +5<CR>', {noremap = true, silent = true})
 keymap.set('n', '+', ':<C-u>res +5<CR>', {noremap = true, silent = true})
 keymap.set('n', '-', ':<C-u>res -5<CR>', {noremap = true, silent = true})
+
+-- lsp
+keymap.set('n', '<Leader>d', ':<C-u>lua vim.diagnostic.open_float()<CR>', {noremap = true, silent = true})
+keymap.set('n', '<Leader>s', ':<C-u>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
+
 

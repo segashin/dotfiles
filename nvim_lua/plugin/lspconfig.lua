@@ -67,21 +67,21 @@ cmp.setup.cmdline(":", {
 })
 
 require('vim.lsp.protocol').CompletionItemKind = {
-  '', -- Text
-  '', -- Method
-  '', -- Function
-  '', -- Constructor
-  '', -- Field
-  '', -- Variable
+  '󰊄', -- Text
+  '󰬔', -- Method
+  '󰊕', -- Function
+  '', -- Constructor
+  '󰬍', -- Field
+  '󰬝', -- Variable
   '', -- Class
-  'ﰮ', -- Interface
-  '', -- Module
+  '', -- Interface
+  '󰕳', -- Module
   '', -- Property
   '', -- Unit
-  '', -- Value
+  '', -- Value
   '', -- Enum
-  '', -- Keyword
-  '﬌', -- Snippet
+  '', -- Keyword
+  '', -- Snippet
   '', -- Color
   '', -- File
   '', -- Reference
@@ -90,7 +90,7 @@ require('vim.lsp.protocol').CompletionItemKind = {
   '', -- Constant
   '', -- Struct
   '', -- Event
-  'ﬦ', -- Operator
+  '', -- Operator
   '', -- TypeParameter
 }
 
@@ -108,17 +108,36 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 -- })
 
 
+-- Show border of the diagnostic floating window
+vim.diagnostic.config({
+  float = { border = "single" }
+})
+
+-- Cofigure the diagnostic highlighting
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = true,
     update_in_insert = false,
-    virtual_text = { spacing = 4, prefix = "●" },
+    virtual_text = { spacing = 4, prefix = "●", source = true },
     severity_sort = true,
   }
 )
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = "single", -- "shadow", "none", "rounded"
+  }
+)
+-- The following settings are defined in /lua/myscripts/colorscheme.lua
+-- - change NormalFloat color
+-- - change FloatBorder color
+
+-- The following settings are defined in /lua/myscripts/keymaps.lua
+-- - keymap to show lsp.buf
+-- - keymap to show diagnostics
+
 -- Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = "", Warn = "", Hint = "", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
