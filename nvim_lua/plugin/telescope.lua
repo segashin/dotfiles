@@ -3,24 +3,13 @@ if (not status) then return end
 local actions = require('telescope.actions')
 local builtin = require("telescope.builtin")
 
-telescope.load_extension "file_browser"
 local fb_actions = require "telescope".extensions.file_browser.actions
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
-vim.keymap.set('n', '<leader>fv',
-  function()
-    telescope.extensions.file_browser.file_browser({
-      hidden = true,
-      initial_mode = "normal",
-      path = "%:p:h"
-    })
-  end
-)
-
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { noremap = true })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { noremap = true })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { noremap = true })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { noremap = true })
+vim.keymap.set('n', '<leader>fv', ':<C-u>Telescope file_browser path=%:p:h slsect_buffer=true<CR>', { noremap = true })
 
 telescope.setup {
   defaults = {
@@ -35,6 +24,10 @@ telescope.setup {
   },
   extensions = {
     file_browser = {
+      -- theme = "ivy",
+      display_stat = { date = false, size = false, mode = false },
+      hidden = true,
+      initial_mode = "normal",
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
@@ -54,4 +47,3 @@ telescope.setup {
 }
 
 telescope.load_extension("file_browser")
-

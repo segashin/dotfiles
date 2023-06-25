@@ -73,4 +73,8 @@ keymap.set('n', '-', ':<C-u>res -5<CR>', {noremap = true, silent = true})
 keymap.set('n', '<Leader>aa', ':<C-u>lua vim.diagnostic.open_float()<CR>', {noremap = true, silent = true})
 keymap.set('n', '<Leader>gg', ':<C-u>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
 
+-- terminal
+keymap.set('n', '<Leader>tt', ':<C-u>terminal<CR>', {noremap = true, silent = true})
+keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
+keymap.set('t', 'jj', '<C-\\><C-n>', {noremap = true, silent = true})
 
