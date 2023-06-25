@@ -97,16 +97,24 @@ require('vim.lsp.protocol').CompletionItemKind = {
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
+local lspconfig = require('lspconfig')
 -- Python
 -- lspconfig.pylsp.setup({
 --   capabilities = capabilities
 -- })
 -- 
 -- -- Lua
--- lspconfig.sumneko_lua.setup({
---   capabilities = capabilities
--- })
-
+lspconfig.lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = {
+          "vim"
+        }
+      }
+    }
+  }
+}
 
 -- Show border of the diagnostic floating window
 vim.diagnostic.config({
