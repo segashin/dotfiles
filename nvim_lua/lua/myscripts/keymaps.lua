@@ -41,6 +41,7 @@ highlightCword(5, 'black', 'bisque4', false)
 keymap.set('n', '<Leader>ww', ':<C-u>w<CR>', {noremap = true, silent = true})
 keymap.set('n', '<Leader>wq', ':<C-u>wq<CR>', {noremap = true, silent = true})
 keymap.set('n', '<Leader>qq', ':<C-u>q<CR>', {noremap = true, silent = true})
+keymap.set('n', '<Leader>bd', ':<C-u>bd<CR>', {noremap = true, silent = true})
 
 -- wincmd moving cursor
 keymap.set('n', '<Leader>h', ':<C-u>wincmd h<CR>', {noremap = true, silent = true})
@@ -55,7 +56,7 @@ keymap.set('n', '<Leader>vs', ':<C-u>wincmd v<CR>', {noremap = true, silent = tr
 -- wincmd manage window
 keymap.set('n', '<Leader>oo', ':<C-u>wincmd o<CR>', {noremap = true, silent = true})
 
--- tab move
+-- tab
 -- keymap.set('n', '}', 'gt', {noremap = true, silent = true})
 -- keymap.set('n', '{', 'gT', {noremap = true, silent = true})
 keymap.set('n', '}', ':<C-u>BufferNext<CR>', {noremap = true, silent = true})

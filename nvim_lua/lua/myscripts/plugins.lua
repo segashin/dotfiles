@@ -72,6 +72,9 @@ return require('packer').startup(function(use)
     end
   })
 
+  -- colorizer
+  use {'brenoprata10/nvim-highlight-colors'}
+
 
   if packer_bootstrap then
     require('packer').sync()
