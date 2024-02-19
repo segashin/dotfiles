@@ -37,10 +37,15 @@ highlightCword(3, 'yellow', 'gold4', false)
 highlightCword(4, 'white', 'LemonChiffon1', false)
 highlightCword(5, 'black', 'bisque4', false)
 
--- map w, q, wq, wqa
+-- marker
+keymap.set('n', '<Leader>m', '`', {noremap = true, silent = true})
+
+
+-- write and quit
 keymap.set('n', '<Leader>ww', ':<C-u>w<CR>', {noremap = true, silent = true})
 keymap.set('n', '<Leader>wq', ':<C-u>wq<CR>', {noremap = true, silent = true})
 keymap.set('n', '<Leader>qq', ':<C-u>q<CR>', {noremap = true, silent = true})
+keymap.set('n', '<Leader>bd', ':<C-u>bd<CR>', {noremap = true, silent = true})
 
 -- wincmd moving cursor
 keymap.set('n', '<Leader>h', ':<C-u>wincmd h<CR>', {noremap = true, silent = true})
