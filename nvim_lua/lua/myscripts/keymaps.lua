@@ -60,7 +60,7 @@ keymap.set('n', '<Leader>vs', ':<C-u>wincmd v<CR>', {noremap = true, silent = tr
 -- wincmd manage window
 keymap.set('n', '<Leader>oo', ':<C-u>wincmd o<CR>', {noremap = true, silent = true})
 
--- tab move
+-- tab
 -- keymap.set('n', '}', 'gt', {noremap = true, silent = true})
 -- keymap.set('n', '{', 'gT', {noremap = true, silent = true})
 keymap.set('n', '}', ':<C-u>BufferNext<CR>', {noremap = true, silent = true})
