@@ -14,18 +14,51 @@ vim.keymap.set('n', '<leader>fv', ':<C-u>Telescope file_browser path=%:p:h slsec
 telescope.setup {
   defaults = {
     hidden = true,
+    layout_strategy = "flex",
+    layout_config = {
+      flex = {
+        width = 0.95,
+        flip_columns = 110, -- turn to horizontal mode if there is less column than this
+        flip_lines = 40, -- turn to vertical mode if there is more lines than this
+      },
+    },
     mappings = {
       n = {
         ["q"] = actions.close,
-        -- ["t"] = actions.select_tab,
-        ["h"] = "which_key",
+        ["H"] = "which_key",
       },
+    },
+    preview = {
+      filesize_limit = 0.5,
+      mime_hook = function(filepath, bufnr, opts)
+        local is_image = function(filepath)
+          local image_extensions = {'png','jpg', 'jpeg', 'PNG'}   -- Supported image formats
+          local split_path = vim.split(filepath:lower(), '.', {plain=true})
+          local extension = split_path[#split_path]
+          return vim.tbl_contains(image_extensions, extension)
+        end
+        if is_image(filepath) then
+          local term = vim.api.nvim_open_term(bufnr, {})
+          local function send_output(_, data, _ )
+            for _, d in ipairs(data) do
+              vim.api.nvim_chan_send(term, d..'\r\n')
+            end
+          end
+          vim.fn.jobstart(
+            {
+              'catimg', filepath  -- Terminal image viewer command
+            },
+            {on_stdout=send_output, stdout_buffered=true, pty=true})
+        else
+          require("telescope.previewers.utils").set_preview_message(bufnr, opts.winid, "Binary cannot be previewed")
+        end
+      end
     },
   },
   extensions = {
     file_browser = {
       -- theme = "ivy",
-      display_stat = { date = false, size = false, mode = false },
+      display_stat = false,
       hidden = true,
       initial_mode = "normal",
       -- disables netrw and use telescope-file-browser in its place

@@ -24,6 +24,36 @@ mason_lspconfig.setup_handlers({
   end
 })
 
+-- Language specific settings
+--  -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+-- Lua
+lspconfig.lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = {
+          "vim"
+        }
+      }
+    }
+  }
+}
+
+-- Python
+lspconfig.pylsp.setup {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          maxLineLength = 119
+        }
+      }
+    }
+  }
+}
+
+
+
 -- completion
 local cmp = require('cmp')
 cmp.setup({
@@ -92,28 +122,6 @@ require('vim.lsp.protocol').CompletionItemKind = {
   '', -- Event
   '', -- Operator
   '', -- TypeParameter
-}
-
--- Set up completion using nvim_cmp with LSP source
-local capabilities = cmp_nvim_lsp.default_capabilities()
-
-local lspconfig = require('lspconfig')
--- Python
--- lspconfig.pylsp.setup({
---   capabilities = capabilities
--- })
--- 
--- -- Lua
-lspconfig.lua_ls.setup {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = {
-          "vim"
-        }
-      }
-    }
-  }
 }
 
 -- Show border of the diagnostic floating window

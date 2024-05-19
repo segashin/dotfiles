@@ -44,8 +44,8 @@ keymap.set('n', '<Leader>m', '`', {noremap = true, silent = true})
 -- write and quit
 keymap.set('n', '<Leader>ww', ':<C-u>w<CR>', {noremap = true, silent = true})
 keymap.set('n', '<Leader>wq', ':<C-u>wq<CR>', {noremap = true, silent = true})
-keymap.set('n', '<Leader>qq', ':<C-u>q<CR>', {noremap = true, silent = true})
-keymap.set('n', '<Leader>bd', ':<C-u>bd<CR>', {noremap = true, silent = true})
+keymap.set('n', '<Leader>qq', ':<C-u>bd<CR>', {noremap = true, silent = true})
+keymap.set('n', '<Leader>qa', ':<C-u>q<CR>', {noremap = true, silent = true})
 
 -- wincmd moving cursor
 keymap.set('n', '<Leader>h', ':<C-u>wincmd h<CR>', {noremap = true, silent = true})
@@ -77,6 +77,14 @@ keymap.set('n', '-', ':<C-u>res -5<CR>', {noremap = true, silent = true})
 -- lsp
 keymap.set('n', '<Leader>aa', ':<C-u>lua vim.diagnostic.open_float()<CR>', {noremap = true, silent = true})
 keymap.set('n', '<Leader>gg', ':<C-u>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
+
+-- jumps
+keymap.set('n', '<Leader>jl', '<cmd>ju<CR>', {noremap = true, silent = true}) -- show jump list
+keymap.set('n', '<Leader>jd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true}) -- to def
+keymap.set('n', '<Leader>jn', '<C-O>', {noremap = true, silent = true}) -- next
+keymap.set('n', '<Leader>jb', '<C-I>', {noremap = true, silent = true}) -- back
+keymap.set('n', '<Leader>ju', '<cmd>lua vim.diagnostic.goto_next()<CR>', {noremap = true, silent = true}) -- to next issue
+keymap.set('n', '<Leader>jy', '<cmd>lua vim.diagnostic.goto_prev()<CR>', {noremap = true, silent = true}) -- to prev issue
 
 -- terminal
 keymap.set('n', '<Leader>tt', ':<C-u>terminal<CR>', {noremap = true, silent = true})
