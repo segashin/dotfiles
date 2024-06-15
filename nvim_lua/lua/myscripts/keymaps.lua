@@ -44,8 +44,8 @@ keymap.set('n', '<Leader>m', '`', {noremap = true, silent = true})
 -- write and quit
 keymap.set('n', '<Leader>ww', ':<C-u>w<CR>', {noremap = true, silent = true})
 keymap.set('n', '<Leader>wq', ':<C-u>wq<CR>', {noremap = true, silent = true})
-keymap.set('n', '<Leader>qq', ':<C-u>bd<CR>', {noremap = true, silent = true})
-keymap.set('n', '<Leader>qa', ':<C-u>q<CR>', {noremap = true, silent = true})
+keymap.set('n', '<Leader>qq', ':<C-u>bd!<CR>', {noremap = true, silent = true})
+keymap.set('n', '<Leader>qa', ':<C-u>qa<CR>', {noremap = true, silent = true})
 
 -- wincmd moving cursor
 keymap.set('n', '<Leader>h', ':<C-u>wincmd h<CR>', {noremap = true, silent = true})
