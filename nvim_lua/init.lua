@@ -1,4 +1,4 @@
-require('myscripts.base')
-require('myscripts.keymaps')
-require('myscripts.plugins')
-require('myscripts.colorscheme')
+require('config.base')
+require('config.keymaps')
+require('config.lazy')
+require('config.colorscheme')

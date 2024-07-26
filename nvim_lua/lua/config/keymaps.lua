@@ -77,15 +77,18 @@ keymap.set('n', '-', ':<C-u>res -5<CR>', {noremap = true, silent = true})
 
 -- lsp
 keymap.set('n', '<Leader>aa', ':<C-u>lua vim.diagnostic.open_float()<CR>', {noremap = true, silent = true})
+keymap.set('n', '<Leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', {noremap = true, silent = true}) -- to def
 keymap.set('n', '<Leader>gg', ':<C-u>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
+keymap.set('n', '<Leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true}) -- to def
 
--- jumps
-keymap.set('n', '<Leader>jl', '<cmd>ju<CR>', {noremap = true, silent = true}) -- show jump list
-keymap.set('n', '<Leader>jd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true}) -- to def
-keymap.set('n', '<Leader>jn', '<C-O>', {noremap = true, silent = true}) -- next
-keymap.set('n', '<Leader>jb', '<C-I>', {noremap = true, silent = true}) -- back
-keymap.set('n', '<Leader>ju', '<cmd>lua vim.diagnostic.goto_next()<CR>', {noremap = true, silent = true}) -- to next issue
-keymap.set('n', '<Leader>jy', '<cmd>lua vim.diagnostic.goto_prev()<CR>', {noremap = true, silent = true}) -- to prev issue
+-- -- interfere's with leader + j
+-- -- jumps
+-- keymap.set('n', '<Leader>jl', '<cmd>ju<CR>', {noremap = true, silent = true}) -- show jump list
+-- keymap.set('n', '<Leader>jn', '<C-O>', {noremap = true, silent = true}) -- next
+-- keymap.set('n', '<Leader>jb', '<C-I>', {noremap = true, silent = true}) -- back
+-- keymap.set('n', '<Leader>jd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true}) -- to def
+-- keymap.set('n', '<Leader>ju', '<cmd>lua vim.diagnostic.goto_next()<CR>', {noremap = true, silent = true}) -- to next issue
+-- keymap.set('n', '<Leader>jy', '<cmd>lua vim.diagnostic.goto_prev()<CR>', {noremap = true, silent = true}) -- to prev issue
 
 -- terminal
 keymap.set('n', '<Leader>tt', ':<C-u>terminal<CR>', {noremap = true, silent = true})
