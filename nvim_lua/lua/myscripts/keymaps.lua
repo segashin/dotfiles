@@ -89,6 +89,7 @@ keymap.set('n', '<Leader>jy', '<cmd>lua vim.diagnostic.goto_prev()<CR>', {norema
 
 -- terminal
 keymap.set('n', '<Leader>tt', ':<C-u>terminal<CR>', {noremap = true, silent = true})
+keymap.set('n', '<Leader>td', ':<C-u>bd!<CR>', {noremap = true, silent = true})
 keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
 keymap.set('t', 'jj', '<C-\\><C-n>', {noremap = true, silent = true})
 
