@@ -1,4 +1,5 @@
 require('config.base')
+require('config.advanced')
 require('config.keymaps')
 require('config.lazy')
 require('config.colorscheme')
