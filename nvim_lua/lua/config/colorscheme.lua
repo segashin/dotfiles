@@ -1,4 +1,4 @@
-local colorscheme = 'nightfox'
+local colorscheme = 'carbonfox'
 print('setting colorscheme ' .. colorscheme)
 
 
@@ -14,7 +14,7 @@ if colorscheme == 'nightfox' or colorscheme == 'carbonfox' then
       },
       carbonfox = {
         NormalFloat = { fg = 'none', bg = 'gray20' },
-        FloatBorder = { fg = 'HotPink4', bg = 'gray20' }
+        FloatBorder = { fg = 'firebrick', bg = 'gray20' }
       },
     }
   })
