@@ -15,7 +15,7 @@ vim.lsp.handlers["textDocument/publishDiakgnostics"] = vim.lsp.with(
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover, {
-    border = "single", -- "shadow", "none", "rounded"
+    border = "single", -- "single" "shadow", "none", "rounded"
   }
 )
 

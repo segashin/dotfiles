@@ -120,7 +120,20 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export FLUTTER_ROOT=$HOME/library/flutter
 export PATH=$PATH:$FLUTTER_ROOT/bin
 
-# remove ls highlight color
+# Remove ls highlight color
 _ls_colors=":ow=01;33" 
 zstyle ':completion:*:default' list-colors "${(s.:.)_ls_colors}"
 LS_COLORS+=$_ls_colors
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Automatically start tmux if not already in a tmux session
+if command -v tmux >/dev/null 2>&1; then
+  # Check if inside a tmux session
+  if [ -z "$TMUX" ]; then
+    # Start a new tmux session or attach to an existing one
+    tmux new
+  fi
+fi

@@ -45,8 +45,14 @@ return {
                 pylsp = {
                   plugins = {
                     pycodestyle = {
-                      maxLineLength = 119
-                    }
+                      maxLineLength = 119,
+                      ignore = {'E402'},
+                      enabled = 0,
+                    },
+                    flake8 = {
+                      enabled = 1,
+                      ignore = {'E402'},
+                    },
                   }
                 }
               }

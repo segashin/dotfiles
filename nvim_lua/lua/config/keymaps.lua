@@ -77,10 +77,11 @@ keymap.set('n', '-', ':<C-u>res -5<CR>', {noremap = true, silent = true})
 
 -- lsp
 keymap.set('n', '<Leader>aa', ':<C-u>lua vim.diagnostic.open_float(nil, {close_events = {"WinLeave", "TextChanged", "TextChangedI"}})<CR>', {noremap = true, silent = true})
-keymap.set('n', '<Leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', {noremap = true, silent = true}) -- to def
-keymap.set('n', '<Leader>gg', ':<C-u>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
-keymap.set('n', '<Leader>gr', ':<C-u>lua vim.lsp.buf.references()<CR>', {noremap = true, silent = true})
-keymap.set('n', '<Leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true}) -- to def
+keymap.set('n', '<Leader>ac', vim.lsp.buf.code_action, {noremap = true, silent = true}) -- to def
+keymap.set('n', '<Leader>gg', vim.lsp.buf.hover, {noremap = true, silent = true})
+keymap.set('n', '<Leader>gr', vim.lsp.buf.references, {noremap = true, silent = true})
+keymap.set('n', '<Leader>gd', vim.lsp.buf.definition, {noremap = true, silent = true}) -- to def
+keymap.set("n", "<Leader>gf", vim.lsp.buf.format, {})
 
 -- -- interfere's with leader + j
 -- -- jumps

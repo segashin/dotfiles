@@ -13,6 +13,7 @@ return {
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/cmp-cmdline' },
+            { 'hrsh7th/cmp-nvim-lsp-signature-help' },
             { 'onsails/lspkind.nvim' },
         },
         config = function()
@@ -63,7 +64,8 @@ return {
                     -- { name = 'ultisnips' }, -- For ultisnips users.
                     -- { name = 'snippy' }, -- For snippy users.
                     { name = "path" },
-                    { name = "cmdline" },
+                    { name = "nvim_lsp_signature_help" },
+                    -- { name = "cmdline" },
                 }, {
                     { name = "buffer" },
                 }),
