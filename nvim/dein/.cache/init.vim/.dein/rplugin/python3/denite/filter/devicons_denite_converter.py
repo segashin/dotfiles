@@ -1,1 +1,0 @@
-/home/segas/dotfiles/nvim/dein/repos/github.com/ryanoasis/vim-devicons/rplugin/python3/denite/filter/devicons_denite_converter.py

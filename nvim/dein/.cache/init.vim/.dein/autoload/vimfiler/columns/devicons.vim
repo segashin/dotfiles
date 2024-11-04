@@ -1,1 +1,0 @@
-/home/segas/dotfiles/nvim/dein/repos/github.com/ryanoasis/vim-devicons/autoload/vimfiler/columns/devicons.vim

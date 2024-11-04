@@ -1,1 +1,0 @@
-/home/segas/dotfiles/nvim/dein/repos/github.com/jiangmiao/auto-pairs/plugin/auto-pairs.vim

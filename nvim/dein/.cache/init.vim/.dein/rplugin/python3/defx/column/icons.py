@@ -1,1 +1,0 @@
-/home/segas/dotfiles/nvim/dein/repos/github.com/kristijanhusak/defx-icons/rplugin/python3/defx/column/icons.py
