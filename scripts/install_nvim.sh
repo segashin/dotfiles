@@ -1,4 +1,6 @@
 #!/bin/sh
+
+# ---- Cd to this file's dir ----
 CURRENT_DIR=$(pwd)
 SCRIPTS_DIR=$(dirname $(realpath "$0"))
 
@@ -17,12 +19,9 @@ else
   tar xzvf nvim-linux64.tar.gz
   sudo mv nvim-linux64/bin/nvim $INSTALL_DIR
   rm -rf nvim-linux64 nvim-linux64.tar.gz
-
-  # link config
-  mkdir -p $HOME/.config/nvim 
-  ln -s ../nvim_lua $HOME/.config/nvim 
 fi
 
+# ---- Check xclip ----
 if command -v xclip &>/dev/null; then
   echo "[OK] xclip is already installed"
 else
@@ -31,4 +30,5 @@ else
   sudo apt install -y xclip
 fi
 
+# ---- Cd back to the original dir ----
 cd $CURRENT_DIR
