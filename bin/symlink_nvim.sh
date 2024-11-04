@@ -9,7 +9,7 @@ cd $SCRIPTS_DIR
 if command -v nvim &>/dev/null; then
   # link config
   CONFIG_DIR=$HOME/.config/nvim
-  TARGET_DIR=$(realpath "$SCRIPTS_DIR/../nvim_lua")
+  TARGET_DIR=$(realpath "$SCRIPTS_DIR/../nvim")
   if [ -d "$CONFIG_DIR" ]; then
 	  echo "[OK] $CONFIG_DIR already exists. Removing"
 	  rm -rf "$CONFIG_DIR"
