@@ -1,23 +1,20 @@
--- Show border of the diagnostic floating window
+-- Diagnostic floating window style
 vim.diagnostic.config({
-  float = { border = "single" }
+  float = { border = "single" },
+  underline = true,
+  update_in_insert = false,
+  virtual_text = { spacing = 2, prefix = "●", source = true },
+  severity_sort = true,
 })
 
--- Diagnostic highlighting
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    update_in_insert = false,
-    virtual_text = { spacing = 2, prefix = "●", source = true },
-    severity_sort = true,
-  }
-)
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = "single", -- "single" "shadow", "none", "rounded"
-  }
-)
+-- To instead override globally
+-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or "single"
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
 
 -- The following settings are defined in /lua/config/colorscheme.lua
 -- - change NormalFloat color
