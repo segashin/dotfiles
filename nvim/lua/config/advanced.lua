@@ -4,7 +4,7 @@ vim.diagnostic.config({
 })
 
 -- Diagnostic highlighting
-vim.lsp.handlers["textDocument/publishDiakgnostics"] = vim.lsp.with(
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = true,
     update_in_insert = false,
@@ -19,11 +19,11 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   }
 )
 
--- The following settings are defined in /lua/myscripts/colorscheme.lua
+-- The following settings are defined in /lua/config/colorscheme.lua
 -- - change NormalFloat color
 -- - change FloatBorder color
 
--- The following settings are defined in /lua/myscripts/keymaps.lua
+-- The following settings are defined in /lua/config/keymaps.lua
 -- - keymap to show lsp.buf
 -- - keymap to show diagnostics
 
