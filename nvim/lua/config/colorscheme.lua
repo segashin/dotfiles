@@ -24,10 +24,10 @@ if colorscheme == 'catppuccin' then
   require('catppuccin').setup({
         custom_highlights = function(colors)
             return {
-                Normal = { fg = 'none', bg = 'gray5' },
-                NormalNC = { fg = 'none', bg = 'gray10' },
-                TabLineSel = { fg = 'none', bg = 'gray5' },
-                TabLine = { fg = 'none', bg = 'gray10' },
+                Normal = { fg = 'none', bg = 'gray4' },
+                NormalNC = { fg = 'none', bg = 'gray8' },
+                TabLineSel = { fg = 'none', bg = 'gray4' },
+                TabLine = { fg = 'none', bg = 'gray8' },
             }
         end
   })
