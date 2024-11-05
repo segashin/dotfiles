@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# ---- Check nvim ----
 if command -v lazygit &>/dev/null; then
     echo "[OK] Lazygit is already installed"
 else

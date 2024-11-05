@@ -12,13 +12,15 @@ if command -v nvim &>/dev/null; then
 else
   echo "[MSG] Neovim not installed"
   echo "[MSG] Installing nvim"
-  INSTALL_DIR="/usr/local/bin"
+  INSTALL_DIR="/usr/local/lib/nvim"
+  EXECUTABLE_PATH="/usr/local/bin/nvim"
   curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
   rm -rf $INSTALL_DIR
   mkdir -p $INSTALL_DIR
   tar xzvf nvim-linux64.tar.gz
-  sudo mv nvim-linux64/bin/nvim $INSTALL_DIR
+  sudo mv nvim-linux64 $INSTALL_DIR
   rm -rf nvim-linux64 nvim-linux64.tar.gz
+  sudo ln -s "$INSTALL_DIR/bin/nvim" "$EXECUTABLE_PATH"
 fi
 
 # ---- Check xclip ----
