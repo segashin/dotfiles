@@ -32,5 +32,14 @@ else
   sudo apt install -y xclip
 fi
 
+# ---- Check ripgrep ----
+if command -v rg &>/dev/null; then
+  echo "[OK] ripgrep is already installed"
+else
+  echo "[MSG] ripgrep not installed"
+  echo "[MSG] Installing ripgrep"
+  sudo apt install -y ripgrep
+fi
+
 # ---- Cd back to the original dir ----
 cd $CURRENT_DIR
