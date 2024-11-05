@@ -79,7 +79,7 @@ keymap.set('n', '+', ':<C-u>res +5<CR>', {noremap = true, silent = true})
 keymap.set('n', '-', ':<C-u>res -5<CR>', {noremap = true, silent = true})
 
 -- lsp
-keymap.set('n', '<Leader>aa', ':<C-u>lua vim.diagnostic.open_float(nil, {close_events = {"WinLeave", "TextChanged", "TextChangedI"}})<CR>', {noremap = true, silent = true})
+keymap.set('n', '<Leader>aa', ':<C-u>lua vim.diagnostic.open_float(nil, {close_events = {"CursorMoved" , "InsertLeave"}})<CR>', {noremap = true, silent = true})
 keymap.set('n', '<Leader>ac', vim.lsp.buf.code_action, {noremap = true, silent = true}) -- to def
 keymap.set('n', '<Leader>gg', vim.lsp.buf.hover, {noremap = true, silent = true})
 keymap.set('n', '<Leader>gr', vim.lsp.buf.references, {noremap = true, silent = true})
