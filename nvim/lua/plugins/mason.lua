@@ -50,6 +50,7 @@ return {
                       enabled = 0,
                     },
                     flake8 = {
+                      maxLineLength = 119,
                       enabled = 1,
                       ignore = {'E402'},
                     },
