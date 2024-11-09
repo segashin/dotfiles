@@ -27,7 +27,7 @@ if colorscheme == 'catppuccin' then
                 Normal = { fg = 'none', bg = 'gray4' },
                 NormalNC = { fg = 'none', bg = 'gray8' },
                 TabLineSel = { fg = 'none', bg = 'gray4' },
-                TabLine = { fg = 'none', bg = 'gray8' },
+                TabLine = { fg = 'none', bg = 'gray24' },
             }
         end
   })
