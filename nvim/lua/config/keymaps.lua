@@ -57,7 +57,7 @@ keymap.set('n', '<Leader>l', ':<C-u>wincmd l<CR>', { noremap = true, silent = tr
 
 -- wincmd split window
 keymap.set('n', '<Leader>ss', ':<C-u>wincmd s<CR>', { noremap = true, silent = true })
-keymap.set('n', '<Leader>vs', ':<C-u>wincmd v<CR>', { noremap = true, silent = true })
+keymap.set('n', '<Leader>vv', ':<C-u>wincmd v<CR>', { noremap = true, silent = true })
 
 -- wincmd manage window
 keymap.set('n', '<Leader>oo', ':<C-u>wincmd o<CR>', { noremap = true, silent = true })
