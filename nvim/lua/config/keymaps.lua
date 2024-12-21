@@ -56,8 +56,8 @@ keymap.set('n', '<Leader>k', ':<C-u>wincmd k<CR>', { noremap = true, silent = tr
 keymap.set('n', '<Leader>l', ':<C-u>wincmd l<CR>', { noremap = true, silent = true })
 
 -- wincmd split window
-keymap.set('n', '<Leader>ss', ':<C-u>wincmd s<CR>', { noremap = true, silent = true })
-keymap.set('n', '<Leader>vv', ':<C-u>wincmd v<CR>', { noremap = true, silent = true })
+keymap.set('n', '<Leader>ss', ':<C-u>wincmd v<CR>', { noremap = true, silent = true })
+keymap.set('n', '<Leader>sS', ':<C-u>wincmd s<CR>', { noremap = true, silent = true })
 
 -- wincmd manage window
 keymap.set('n', '<Leader>oo', ':<C-u>wincmd o<CR>', { noremap = true, silent = true })
@@ -66,8 +66,6 @@ keymap.set('n', '<Leader>wr', ':<C-u>wincmd r<CR>', { noremap = true, silent = t
 -- keymap.set('n', '<Leader>wh', ':<C-u>wincmd H<CR>', { noremap = true, silent = true })
 
 -- tab
--- keymap.set('n', '}', 'gt', {noremap = true, silent = true})
--- keymap.set('n', '{', 'gT', {noremap = true, silent = true})
 keymap.set('n', '}', ':<C-u>BufferNext<CR>', { noremap = true, silent = true })
 keymap.set('n', '{', ':<C-u>BufferPrevious<CR>', { noremap = true, silent = true })
 keymap.set('n', 'gt', ':<C-u>BufferNext<CR>', { noremap = true, silent = true })
@@ -80,7 +78,7 @@ keymap.set('n', '+', ':<C-u>res +5<CR>', { noremap = true, silent = true })
 keymap.set('n', '-', ':<C-u>res -5<CR>', { noremap = true, silent = true })
 
 -- lsp
-keymap.set('n', '<Leader>aa',
+keymap.set('n', '<Leader>ga',
     ':<C-u>lua vim.diagnostic.open_float(nil, {close_events = {"CursorMoved" , "InsertLeave"}})<CR>',
     { noremap = true, silent = true })
 keymap.set('n', '<Leader>gc', vim.lsp.buf.code_action, { noremap = true, silent = true }) -- to action
@@ -89,26 +87,24 @@ keymap.set('n', '<Leader>gr', vim.lsp.buf.references, { noremap = true, silent =
 keymap.set('n', '<Leader>gd', vim.lsp.buf.definition, { noremap = true, silent = true }) -- to def
 keymap.set("n", "<Leader>gf", vim.lsp.buf.format, {})
 
--- -- interfere's with leader + j
--- -- jumps
-keymap.set('n', '<Leader>as', '<cmd>ju<CR>', {noremap = true, silent = true}) -- show jump list
-keymap.set('n', '<Leader>nn', '<C-O>', {noremap = true, silent = true}) -- next
-keymap.set('n', '<Leader>mm', '<C-I>', {noremap = true, silent = true}) -- back
-keymap.set('n', '<Leader>gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', {noremap = true, silent = true}) -- to next issue
-keymap.set('n', '<Leader>gm', '<cmd>lua vim.diagnostic.goto_prev()<CR>', {noremap = true, silent = true}) -- to prev issue
+-- jumps
+keymap.set('n', '<Leader>nn', '<cmd>ju<CR>', {noremap = true, silent = true}) -- show jump list
+keymap.set('n', '<Leader>nh', '<C-O>', {noremap = true, silent = true}) -- next
+keymap.set('n', '<Leader>nj', '<C-I>', {noremap = true, silent = true}) -- back
+keymap.set('n', '<Leader>mh', '<cmd>lua vim.diagnostic.goto_next()<CR>', {noremap = true, silent = true}) -- to next issue
+keymap.set('n', '<Leader>mj', '<cmd>lua vim.diagnostic.goto_prev()<CR>', {noremap = true, silent = true}) -- to prev issue
 
 -- terminal
 keymap.set('n', '<Leader>tt', ':<C-u>terminal<CR>', { noremap = true, silent = true })
 keymap.set('n', '<Leader>td', ':<C-u>bd!<CR>', { noremap = true, silent = true })
 keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
-keymap.set('t', 'jj', '<C-\\><C-n>', { noremap = true, silent = true })
+-- keymap.set('t', 'jj', '<C-\\><C-n>', { noremap = true, silent = true })
 
 -- aerial
 -- Check lua/plugins/aerial.lua
--- vim.keymap.set("n", "[", "<cmd>AerialPrev<CR>", { buffer = bufnr })
--- vim.keymap.set("n", "]", "<cmd>AerialNext<CR>", { buffer = bufnr })
--- vim.keymap.set("n", "ae", "<cmd>AerialToggle<CR>", { buffer = bufnr })
--- vim.keymap.set("n", "fa", "<cmd>Telescope aerial<CR>")
+vim.keymap.set("n", "wc", "<cmd>AerialClose<CR><cmd>Neotree filesystem close<CR>")
+vim.keymap.set("n", "wv", "<cmd>AerialOpen!<CR><cmd>Neotree filesystem show<CR>")
+
 
 -- lazygit
 -- Check lua/plugins/lazygit.lua

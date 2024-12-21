@@ -52,46 +52,46 @@ return {
                 col = 1
             },
             on_attach                    = function(bufnr)
-                local function map(mode, l, r, opts)
-                    opts = opts or {}
-                    opts.buffer = bufnr
-                    vim.keymap.set(mode, l, r, opts)
-                end
+                -- local function map(mode, l, r, opts)
+                --     opts = opts or {}
+                --     opts.buffer = bufnr
+                --     vim.keymap.set(mode, l, r, opts)
+                -- end
 
-                -- Navigation
-                map('n', ']c', function()
-                    if vim.wo.diff then
-                        vim.cmd.normal({ ']c', bang = true })
-                    else
-                        gitsigns.nav_hunk('next')
-                    end
-                end)
+                -- -- Navigation
+                -- map('n', ']c', function()
+                --     if vim.wo.diff then
+                --         vim.cmd.normal({ ']c', bang = true })
+                --     else
+                --         gitsigns.nav_hunk('next')
+                --     end
+                -- end)
 
-                map('n', '[c', function()
-                    if vim.wo.diff then
-                        vim.cmd.normal({ '[c', bang = true })
-                    else
-                        gitsigns.nav_hunk('prev')
-                    end
-                end)
+                -- map('n', '[c', function()
+                --     if vim.wo.diff then
+                --         vim.cmd.normal({ '[c', bang = true })
+                --     else
+                --         gitsigns.nav_hunk('prev')
+                --     end
+                -- end)
 
                 -- Actions
-                map('n', '<leader>vs', gitsigns.stage_hunk)
-                map('n', '<leader>vr', gitsigns.reset_hunk)
-                map('v', '<leader>vs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-                map('v', '<leader>vr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+                -- map('n', '<leader>vs', gitsigns.stage_hunk)
+                -- map('n', '<leader>vr', gitsigns.reset_hunk)
+                -- map('v', '<leader>vs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+                -- map('v', '<leader>vr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
                 -- map('n', '<leader>hS', gitsigns.stage_buffer)
-                map('n', '<leader>vu', gitsigns.undo_stage_hunk)
-                map('n', '<leader>vR', gitsigns.reset_buffer)
-                map('n', '<leader>vp', gitsigns.preview_hunk)
-                map('n', '<leader>vb', function() gitsigns.blame_line { full = true } end)
-                map('n', '<leader>vt', gitsigns.toggle_current_line_blame)
-                map('n', '<leader>vf', gitsigns.diffthis)
-                map('n', '<leader>vF', function() gitsigns.diffthis('~') end)
-                map('n', '<leader>vd', gitsigns.toggle_deleted)
+                -- map('n', '<leader>vu', gitsigns.undo_stage_hunk)
+                -- map('n', '<leader>vR', gitsigns.reset_buffer)
+                -- map('n', '<leader>vp', gitsigns.preview_hunk)
+                -- map('n', '<leader>vb', function() gitsigns.blame_line { full = true } end)
+                -- map('n', '<leader>vt', gitsigns.toggle_current_line_blame)
+                -- map('n', '<leader>vf', gitsigns.diffthis)
+                -- map('n', '<leader>vF', function() gitsigns.diffthis('~') end)
+                -- map('n', '<leader>vd', gitsigns.toggle_deleted)
 
                 -- Text object
-                map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+                -- map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
             end
         })
     end,

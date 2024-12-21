@@ -11,7 +11,10 @@ return {
         vim.keymap.set('n', '<leader>ft', ':Neotree filesystem toggle<CR>', {})
         local neotree = require("neo-tree")
         neotree.setup({
+            close_if_last_window = true,
             window = {
+                position = "left",
+                width = math.floor(vim.o.columns / 5),
                 mappings = {
                     ["N"] = { "add", config = { show_path = "none" } },
                     ["y"] = { "copy" },
@@ -24,6 +27,11 @@ return {
                     hide_hidden = false,
                 }
             }
+        })
+        vim.api.nvim_create_autocmd("VimEnter", {
+            callback = function()
+                vim.cmd("Neotree filesystem show")
+            end,
         })
     end
 }

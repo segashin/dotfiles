@@ -45,14 +45,14 @@ return {
                 pylsp = {
                   plugins = {
                     pycodestyle = {
-                      maxLineLength = 119,
+                      maxLineLength = 88,
                       ignore = {'E402'},
                       enabled = 0,
                     },
                     flake8 = {
-                      maxLineLength = 119,
+                      maxLineLength = 88,
                       enabled = 1,
-                      ignore = {'E402'},
+                      ignore = {'E203', 'W503', 'E402'},
                     },
                   }
                 }
