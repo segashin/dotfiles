@@ -32,32 +32,35 @@ return {
             lspconfig.lua_ls.setup({
                 settings = {
                     Lua = {
-                      diagnostics = {
-                        globals = {
-                          "vim"
+                        diagnostics = {
+                            globals = {
+                                "vim"
+                            }
                         }
-                      }
                     }
                 },
             })
-            lspconfig.pylsp.setup {
-              settings = {
-                pylsp = {
-                  plugins = {
-                    pycodestyle = {
-                      maxLineLength = 88,
-                      ignore = {'E402'},
-                      enabled = 0,
-                    },
-                    flake8 = {
-                      maxLineLength = 88,
-                      enabled = 1,
-                      ignore = {'E203', 'W503', 'E402'},
-                    },
-                  }
+            lspconfig.pylsp.setup({
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            pycodestyle = {
+                                maxLineLength = 88,
+                                ignore = { 'E402' },
+                                enabled = 0,
+                            },
+                            flake8 = {
+                                maxLineLength = 88,
+                                enabled = 1,
+                                ignore = { 'E203', 'W503', 'E402' },
+                            },
+                        }
+                    }
                 }
-              }
-            }
+            })
+            lspconfig.dartls.setup({
+                cmd = { "dart", 'language-server', '--protocol=lsp' }
+            })
         end
     }
 }
