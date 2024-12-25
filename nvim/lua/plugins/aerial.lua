@@ -18,7 +18,7 @@ return {
                 vim.keymap.set("n", "<leader>af", "<cmd>Telescope aerial<CR>")
             end,
             layout = {
-                default_direction = "prefer_right",
+                default_direction = "right",
                 width = math.floor(vim.o.columns / 3),
                 min_width = 25,
                 max_width = (0.2),
@@ -28,7 +28,12 @@ return {
         })
         vim.api.nvim_create_autocmd("VimEnter", {
             callback = function()
-                vim.cmd("AerialToggle!")
+                vim.defer_fn(
+                    function ()
+                        vim.cmd("AerialToggle!")
+                    end,
+                    1000
+                )
             end,
         })
     end,
