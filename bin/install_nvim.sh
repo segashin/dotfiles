@@ -14,12 +14,14 @@ else
   echo "[MSG] Installing nvim"
   INSTALL_DIR="/usr/local/lib/nvim"
   EXECUTABLE_PATH="/usr/local/bin/nvim"
-  curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
-  rm -rf $INSTALL_DIR
-  mkdir -p $INSTALL_DIR
-  tar xzvf nvim-linux64.tar.gz
-  sudo mv nvim-linux64 $INSTALL_DIR
-  rm -rf nvim-linux64 nvim-linux64.tar.gz
+  curl -LO https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.tar.gz
+  sudo rm -rf $INSTALL_DIR
+  sudo mkdir -p $INSTALL_DIR
+  ll -la
+  sudo chmod 755 nvim-linux-x86_64.tar.gz
+  sudo tar -xzvf nvim-linux-x86_64.tar.gz
+  sudo mv nvim-linux-x86_64 $INSTALL_DIR
+  rm -rf nvim-linux-x86_64 nvim-linux-x86_64.tar.gz
   sudo ln -s "$INSTALL_DIR/bin/nvim" "$EXECUTABLE_PATH"
 fi
 

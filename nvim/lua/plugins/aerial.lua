@@ -26,15 +26,15 @@ return {
             attach_mode = "global",
             open_automatic = false,
         })
-        vim.api.nvim_create_autocmd("VimEnter", {
-            callback = function()
-                vim.defer_fn(
-                    function ()
-                        vim.cmd("AerialToggle!")
-                    end,
-                    1000
-                )
-            end,
-        })
+        -- vim.api.nvim_create_autocmd("VimEnter", {
+        --     callback = function()
+        --         vim.defer_fn(
+        --             function ()
+        --                 vim.cmd("AerialToggle!")
+        --             end,
+        --             1000
+        --         )
+        --     end,
+        -- })
     end,
 }
