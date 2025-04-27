@@ -4,8 +4,8 @@ SCRIPT_PATH=$(realpath ${(%):-%x})
 SCRIPT_NAME=${SCRIPT_PATH:t}
 SCRIPT_DIR=${SCRIPT_PATH:h}
 
-CONFIG_PATH=$HOME/.config/nvim
-TARGET_PATH=$(realpath "$SCRIPT_DIR/../nvim")
+CONFIG_PATH=$HOME/.config/tmux
+TARGET_PATH=$(realpath "$SCRIPT_DIR/../tmux")
 
 source $SCRIPT_DIR/_symlink.zsh
 
