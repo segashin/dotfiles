@@ -11,3 +11,7 @@ source $SCRIPT_DIR/_symlink.zsh
 
 _symlink $CONFIG_PATH $TARGET_PATH
 echo "[$SCRIPT_NAME] Done"
+
+CONFIG_PATH=$HOME/.oh-my-zsh/custom
+TARGET_PATH=$(realpath "$SCRIPT_DIR/../zsh/.oh-my-zsh/custom")
+_symlink $CONFIG_PATH $TARGET_PATH

@@ -73,6 +73,8 @@ ZSH_THEME="avit"
 plugins=(
   git
   zsh-autosuggestions
+  zsh-history-substring-search
+  zsh-syntax-highlighting
   docker
   docker-compose
   virtualenv
