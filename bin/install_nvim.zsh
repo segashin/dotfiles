@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 SCRIPT_PATH=$(realpath ${(%):-%x})
-echo $SCRIPT_PATH
 SCRIPT_NAME=${SCRIPT_PATH:t}
 SCRIPT_DIR=${SCRIPT_PATH:h}
 
