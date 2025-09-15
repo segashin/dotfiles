@@ -8,7 +8,6 @@ return {
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
-        vim.keymap.set('n', '<leader>ft', ':Neotree filesystem toggle<CR>', {})
         local neotree = require("neo-tree")
         neotree.setup({
             close_if_last_window = true,
@@ -18,6 +17,9 @@ return {
                 mappings = {
                     ["N"] = { "add", config = { show_path = "none" } },
                     ["y"] = { "copy" },
+                    ["S"] = "open_split",
+                    ["s"] = "open_vsplit",
+                    ["t"] = "open_tabnew",
                 },
             },
             filesystem = {

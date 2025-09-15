@@ -142,3 +142,5 @@ if command -v tmux >/dev/null 2>&1; then
     tmux new
   fi
 fi
+
+export PATH=$PATH:/usr/local/go/bin

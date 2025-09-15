@@ -1,6 +1,6 @@
 require('config.base')
+require('config.lazy')
 require('config.ui')
 require('config.keymaps')
-require('config.lazy')
 require('config.colorscheme')
 require('config.override')

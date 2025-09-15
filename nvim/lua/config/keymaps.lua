@@ -38,10 +38,6 @@ highlightCword(3, 'yellow', 'gold4', false)
 highlightCword(4, 'white', 'LemonChiffon1', false)
 highlightCword(5, 'black', 'bisque4', false)
 
--- marker
-keymap.set('n', '<Leader>n', ':<C-U>BufferPrevious<CR>')
-keymap.set('n', '<Leader>m', ':<C-U>BufferNext<CR>')
-
 -- write and quit
 keymap.set('n', '<Leader>ww', ':<C-u>w<CR>', { noremap = true, silent = true })
 keymap.set('n', '<Leader>wq', ':<C-u>wq<CR>', { noremap = true, silent = true })
@@ -65,7 +61,7 @@ keymap.set('n', '<Leader>wr', ':<C-u>wincmd r<CR>', { noremap = true, silent = t
 -- keymap.set('n', '<Leader>wj', ':<C-u>wincmd J<CR>', { noremap = true, silent = true })
 -- keymap.set('n', '<Leader>wh', ':<C-u>wincmd H<CR>', { noremap = true, silent = true })
 
--- tab
+-- Buffer
 keymap.set('n', '}', ':<C-u>BufferNext<CR>', { noremap = true, silent = true })
 keymap.set('n', '{', ':<C-u>BufferPrevious<CR>', { noremap = true, silent = true })
 keymap.set('n', 'gt', ':<C-u>BufferNext<CR>', { noremap = true, silent = true })
@@ -78,38 +74,50 @@ keymap.set('n', '+', ':<C-u>res +5<CR>', { noremap = true, silent = true })
 keymap.set('n', '-', ':<C-u>res -5<CR>', { noremap = true, silent = true })
 
 -- lsp
-keymap.set('n', '<Leader>ga',
+keymap.set('n', '<Leader>gs',
     ':<C-u>lua vim.diagnostic.open_float(nil, {close_events = {"CursorMoved" , "InsertLeave"}})<CR>',
-    { noremap = true, silent = true })
-keymap.set('n', '<Leader>gc', vim.lsp.buf.code_action, { noremap = true, silent = true }) -- to action
-keymap.set('n', '<Leader>gg', vim.lsp.buf.hover, { noremap = true, silent = true })
-keymap.set('n', '<Leader>gr', vim.lsp.buf.references, { noremap = true, silent = true })
-keymap.set('n', '<Leader>gd', vim.lsp.buf.definition, { noremap = true, silent = true }) -- to def
-keymap.set("n", "<Leader>gf", vim.lsp.buf.format, {})
+    { noremap = true, silent = true }) -- g + s (show)
+keymap.set('n', '<Leader>ga', vim.lsp.buf.code_action, { noremap = true, silent = true }) -- g + a (action)
+keymap.set('n', '<Leader>gg', vim.lsp.buf.hover, { noremap = true, silent = true }) -- g + g (google)
+keymap.set("n", "<Leader>gf", vim.lsp.buf.format, {}) -- g + f (format)
+-- keymap.set('n', '<Leader>gr', vim.lsp.buf.references, { noremap = true, silent = true })
+-- keymap.set('n', '<Leader>gd', vim.lsp.buf.definition, { noremap = true, silent = true }) -- to def
 
 -- jumps
-keymap.set('n', '<Leader>nn', '<cmd>ju<CR>', {noremap = true, silent = true}) -- show jump list
-keymap.set('n', '<Leader>nh', '<C-O>', {noremap = true, silent = true}) -- next
-keymap.set('n', '<Leader>nj', '<C-I>', {noremap = true, silent = true}) -- back
-keymap.set('n', '<Leader>mh', '<cmd>lua vim.diagnostic.goto_next()<CR>', {noremap = true, silent = true}) -- to next issue
-keymap.set('n', '<Leader>mj', '<cmd>lua vim.diagnostic.goto_prev()<CR>', {noremap = true, silent = true}) -- to prev issue
+-- keymap.set('n', '<Leader>nn', '<cmd>ju<CR>', { noremap = true, silent = true })                             -- show jump list
+-- keymap.set('n', '<Leader>nh', '<C-O>', { noremap = true, silent = true })                                   -- next
+-- keymap.set('n', '<Leader>nj', '<C-I>', { noremap = true, silent = true })                                   -- back
+-- keymap.set('n', '<Leader>mh', '<cmd>lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = true }) -- to next issue
+-- keymap.set('n', '<Leader>mj', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = true }) -- to prev issue
 
--- terminal
-keymap.set('n', '<Leader>tt', ':<C-u>terminal<CR>', { noremap = true, silent = true })
-keymap.set('n', '<Leader>td', ':<C-u>bd!<CR>', { noremap = true, silent = true })
-keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
--- keymap.set('t', 'jj', '<C-\\><C-n>', { noremap = true, silent = true })
+-- Telescope
+local tele_builtin = require('telescope.builtin')
+-- Telescope - find  - f (find)
+keymap.set('n', '<leader>fc', tele_builtin.resume, {})  -- f + c (continue)
+keymap.set('n', '<leader>fC', tele_builtin.pickers, {}) -- f + C (CONTINUE)
 
--- aerial
--- Check lua/plugins/aerial.lua
-vim.keymap.set("n", "wc", "<cmd>AerialClose<CR><cmd>Neotree filesystem close<CR>")
-vim.keymap.set("n", "wv", "<cmd>AerialOpen!<CR><cmd>Neotree filesystem show<CR>")
+keymap.set('n', '<leader>ff', tele_builtin.find_files, {})
+keymap.set('n', '<leader>fg', tele_builtin.live_grep, {})
+keymap.set('n', '<leader>fb', tele_builtin.buffers, {})
 
+keymap.set('n', '<leader>f/', tele_builtin.search_history, {})
+keymap.set('n', '<leader>fr', tele_builtin.lsp_references, {})
+keymap.set('n', '<leader>fw', tele_builtin.treesitter, {})
 
--- lazygit
--- Check lua/plugins/lazygit.lua
--- { "<leader>tg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+-- Telescope - git - v (version)
+keymap.set('n', '<leader>vc', tele_builtin.git_commits, {})
+keymap.set('n', '<leader>vs', tele_builtin.git_status, {})
+keymap.set('n', '<leader>vb', tele_builtin.git_branches, {})
 
--- neotree
--- Check lua/plugins/neotree.lua
--- vim.keymap.set('n', '<leader>ft', ':Neotree filesystem toggle<CR>', {})
+-- Telescope - file browser
+keymap.set('n', '<leader>fv', ':<C-u>Telescope file_browser path=%:p:h slsect_buffer=true<CR>', {})
+
+-- Neotree
+keymap.set('n', '<leader>tt', ':Neotree filesystem toggle<CR>', {})
+
+-- Diffview
+-- keymap.set('n', '<leader>vo', ':DiffviewOpen<CR>', {})
+-- keymap.set('n', '<leader>qv', ':DiffviewClose<CR>', {})
+-- keymap.set('n', '<leader>vbc', ':DiffviewFileHistory<CR>', {})
+-- keymap.set('n', '<leader>vfc', ':DiffviewFileHistory %<CR>', {})
+-- keymap.set('n', '<leader>vfbl', ':DiffviewFileHistory % --base=LOCAL<CR>', {})
