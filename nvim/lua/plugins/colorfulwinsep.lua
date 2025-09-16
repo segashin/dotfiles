@@ -5,7 +5,7 @@ return {
         local colorfulwinsep = require('colorful-winsep')
         colorfulwinsep.setup({
             hi = {
-                fg = "DeepSkyBlue3",
+                fg = "#342ba2",
             }
         })
     end,
