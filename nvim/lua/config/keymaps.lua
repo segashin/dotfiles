@@ -116,8 +116,8 @@ keymap.set('n', '<leader>fv', ':<C-u>Telescope file_browser path=%:p:h slsect_bu
 keymap.set('n', '<leader>tt', ':Neotree filesystem toggle<CR>', {})
 
 -- Diffview
--- keymap.set('n', '<leader>vo', ':DiffviewOpen<CR>', {})
--- keymap.set('n', '<leader>qv', ':DiffviewClose<CR>', {})
+keymap.set('n', '<leader>vo', ':DiffviewOpen<CR>', {})
+keymap.set('n', '<leader>vq', ':DiffviewClose<CR>', {})
 -- keymap.set('n', '<leader>vbc', ':DiffviewFileHistory<CR>', {})
 -- keymap.set('n', '<leader>vfc', ':DiffviewFileHistory %<CR>', {})
 -- keymap.set('n', '<leader>vfbl', ':DiffviewFileHistory % --base=LOCAL<CR>', {})

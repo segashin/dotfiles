@@ -1,5 +1,6 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
+    lazy = false,
     branch = "v3.x",
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -30,10 +31,10 @@ return {
                 }
             }
         })
-        vim.api.nvim_create_autocmd("VimEnter", {
-            callback = function()
-                vim.cmd("Neotree filesystem show")
-            end,
-        })
+        -- vim.api.nvim_create_autocmd("VimEnter", {
+        --     callback = function()
+        --         vim.cmd("Neotree filesystem show")
+        --     end,
+        -- })
     end
 }
