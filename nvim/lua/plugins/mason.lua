@@ -7,6 +7,7 @@ return {
     },
     {
         "williamboman/mason-lspconfig.nvim",
+        dependencies = { "williamboman/mason.nvim" },
         config = function()
             local mason_lspconfig = require("mason-lspconfig")
             mason_lspconfig.setup({
@@ -16,17 +17,9 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
+        dependencies = { "williamboman/mason-lspconfig.nvim" },
         config = function()
-            local capabilities = require('cmp_nvim_lsp').default_capabilities()
             local lspconfig = require('lspconfig')
-            local mason_lspconfig = require("mason-lspconfig")
-            mason_lspconfig.setup_handlers({
-                function(server_name)
-                    lspconfig[server_name].setup({
-                        capabilities = capabilities,
-                    })
-                end
-            })
 
             -- Language specific settings
             lspconfig.lua_ls.setup({
