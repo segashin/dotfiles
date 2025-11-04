@@ -76,10 +76,10 @@ keymap.set('n', '-', ':<C-u>res -5<CR>', { noremap = true, silent = true })
 -- lsp
 keymap.set('n', '<Leader>gs',
     ':<C-u>lua vim.diagnostic.open_float(nil, {close_events = {"CursorMoved" , "InsertLeave"}})<CR>',
-    { noremap = true, silent = true }) -- g + s (show)
+    { noremap = true, silent = true })                                                    -- g + s (show)
 keymap.set('n', '<Leader>ga', vim.lsp.buf.code_action, { noremap = true, silent = true }) -- g + a (action)
-keymap.set('n', '<Leader>gg', vim.lsp.buf.hover, { noremap = true, silent = true }) -- g + g (google)
-keymap.set("n", "<Leader>gf", vim.lsp.buf.format, {}) -- g + f (format)
+keymap.set('n', '<Leader>gg', vim.lsp.buf.hover, { noremap = true, silent = true })       -- g + g (google)
+keymap.set("n", "<Leader>gf", vim.lsp.buf.format, {})                                     -- g + f (format)
 -- keymap.set('n', '<Leader>gr', vim.lsp.buf.references, { noremap = true, silent = true })
 -- keymap.set('n', '<Leader>gd', vim.lsp.buf.definition, { noremap = true, silent = true }) -- to def
 
@@ -92,6 +92,7 @@ keymap.set("n", "<Leader>gf", vim.lsp.buf.format, {}) -- g + f (format)
 
 -- Telescope
 local tele_builtin = require('telescope.builtin')
+local utils = require('config.utils')
 -- Telescope - find  - f (find)
 keymap.set('n', '<leader>fc', tele_builtin.resume, {})  -- f + c (continue)
 keymap.set('n', '<leader>fC', tele_builtin.pickers, {}) -- f + C (CONTINUE)
@@ -105,19 +106,26 @@ keymap.set('n', '<leader>fr', tele_builtin.lsp_references, {})
 keymap.set('n', '<leader>fw', tele_builtin.treesitter, {})
 
 -- Telescope - git - v (version)
-keymap.set('n', '<leader>vc', tele_builtin.git_commits, {})
-keymap.set('n', '<leader>vs', tele_builtin.git_status, {})
-keymap.set('n', '<leader>vb', tele_builtin.git_branches, {})
+-- keymap.set('n', '<leader>vc', tele_builtin.git_commits, {})
+-- keymap.set('n', '<leader>vs', tele_builtin.git_status, {})
+-- keymap.set('n', '<leader>vb', tele_builtin.git_branches, {})
 
 -- Telescope - file browser
 keymap.set('n', '<leader>fv', ':<C-u>Telescope file_browser path=%:p:h slsect_buffer=true<CR>', {})
 
--- Neotree
+-- Neotrea
 keymap.set('n', '<leader>tt', ':Neotree filesystem toggle<CR>', {})
 
 -- Diffview
-keymap.set('n', '<leader>vo', ':DiffviewToggle<CR>', {})
-keymap.set('n', '<leader>vq', ':DiffviewClose<CR>', {})
--- keymap.set('n', '<leader>vbc', ':DiffviewFileHistory<CR>', {})
+keymap.set('n', '<leader>vq', ':DiffviewClose<CR>', {})                                        -- version quit
+
+keymap.set('n', '<leader>vv', ':DiffviewToggle<CR>', {})                                       -- verion view
+keymap.set('n', '<leader>vl', utils.telescope_to_diffview(tele_builtin.git_commits, '^!'), {}) -- version list
+keymap.set('n', '<leader>v;', utils.telescope_to_diffview(tele_builtin.git_branches), {})      -- version branch
+
+keymap.set('n', '<leader>vh', ':DiffviewFileHistory<CR>', {})                                  -- version history
+-- keymap.set('n', '<leader>vj', utils.telescope_to_diffview_file_history(tele_builtin.git_commits), {})   -- version history (j)
+-- keymap.set('n', '<leader>vk', utils.telescope_to_diffview_file_history(tele_builtin.git_branches), {}) -- version history (k)
+
 -- keymap.set('n', '<leader>vfc', ':DiffviewFileHistory %<CR>', {})
 -- keymap.set('n', '<leader>vfbl', ':DiffviewFileHistory % --base=LOCAL<CR>', {})
