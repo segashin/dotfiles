@@ -9,3 +9,5 @@ glol() {
 glola() {
     _glol_helper --all -n "${1:-40}"
 }
+
+alias gpul="git pull origin"

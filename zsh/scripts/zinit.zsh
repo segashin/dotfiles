@@ -21,17 +21,24 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-# Autosuggestions
+# ----- Plugins -----
+# Syntax highlighting
+# zinit light zsh-users/zsh-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
+
+# Zsh completions - adds completiosn for tools not convered by Zsh default
+zinit light zsh-users/zsh-completions
+
+# # Auto complete - adds smart autocompletion
+# zinit light marlonrichert/zsh-autocomplete
+
+# Auto suggestions - adds history-based autocompletion
 zinit light zsh-users/zsh-autosuggestions
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Syntax highlighting
-# zinit light zsh-users/zsh-syntax-highlighting
-zinit light zdharma-continuum/fast-syntax-highlighting
-
-# History multi-search
+# History multi-search - adds multi-word search for history (Ctr+R)
 zstyle ":history-search-multi-word" page-size "11"
 zinit ice wait"1" lucid
 zinit load zdharma-continuum/history-search-multi-word
