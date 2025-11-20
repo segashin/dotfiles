@@ -6,4 +6,7 @@ source ~/dotfiles/zsh/scripts/colors.zsh
 source ~/dotfiles/zsh/scripts/git.zsh
 source ~/dotfiles/zsh/scripts/bindkey.zsh
 
-source ~/dotfiles/zsh/local/local.zsh
+# Source all files in local folder
+for f in ~/dotfiles/zsh/local/*.zsh; do
+  [[ -r "$f" ]] && source "$f"
+done
