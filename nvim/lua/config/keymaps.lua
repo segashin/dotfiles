@@ -112,26 +112,20 @@ keymap.set('n', '<leader>vp', tele_builtin.git_branches, {})
 -- Telescope - file browser
 keymap.set('n', '<leader>fv', ':<C-u>Telescope file_browser path=%:p:h slsect_buffer=true<CR>', {})
 
--- Neotrea
+-- Neotree
 keymap.set('n', '<leader>tt', ':Neotree filesystem toggle<CR>', {})
 
 -- Diffview
-keymap.set('n', '<leader>vq', ':DiffviewClose<CR>', {})                                        -- version quit
+keymap.set('n', '<leader>vq', ':DiffviewClose<CR>', {})  -- version quit
 
-keymap.set('n', '<leader>vv', ':DiffviewToggle<CR>', {})                                       -- verion view
+keymap.set('n', '<leader>vv', ':DiffviewToggle<CR>', {}) -- verion view
 keymap.set('n', '<leader>vl', utils.telescope_to_diffview(tele_builtin.git_commits, '^!', {
-	git_command = { 'git', 'log', '--pretty=%h - %s <%an> (%ar)', '--date=relative', '--', '.' }
+    git_command = { 'git', 'log', '--pretty=%h - %s <%an> (%ar)', '--date=relative', '--', '.' }
 }), {}) -- version list
 keymap.set('n', '<leader>v;', utils.telescope_to_diffview(tele_builtin.git_branches, '', {
-	git_command = { 'git', 'branch', '--sort=-committerdate', '--format=%(refname:short)' },
-	preview = {
-		preview_command = { 'git', 'log', '--graph', '--pretty=%h - %s <%an> (%ar)', '--date=relative', '--color=always' }
-	}
-}), {})      -- version branch
-
-keymap.set('n', '<leader>vh', ':DiffviewFileHistory<CR>', {})                                  -- version history
--- keymap.set('n', '<leader>vj', utils.telescope_to_diffview_file_history(tele_builtin.git_commits), {})   -- version history (j)
--- keymap.set('n', '<leader>vk', utils.telescope_to_diffview_file_history(tele_builtin.git_branches), {}) -- version history (k)
-
--- keymap.set('n', '<leader>vfc', ':DiffviewFileHistory %<CR>', {})
--- keymap.set('n', '<leader>vfbl', ':DiffviewFileHistory % --base=LOCAL<CR>', {})
+    git_command = { 'git', 'branch', '--sort=-committerdate', '--format=%(refname:short)' },
+    preview = {
+        preview_command = { 'git', 'log', '--graph', '--pretty=%h - %s <%an> (%ar)', '--date=relative', '--color=always' }
+    }
+}), {})                                                       -- version branch
+keymap.set('n', '<leader>vh', ':DiffviewFileHistory<CR>', {}) -- version history
