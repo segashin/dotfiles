@@ -2,9 +2,15 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local act = wezterm.action
 
--- config.color_scheme = "Nightfox"
-config.color_scheme = "carbonfox"
-config.default_prog = { "wsl", "--distribution", "ubuntu", "--cd", "~" }
+-- config.color_scheme = "OneHalfDark"
+config.color_scheme = "tokyonight_night"
+config.default_domain = 'WSL:FedoraLinux-42'
+
+config.font = wezterm.font_with_fallback({
+  { family = "Hack Nerd Font", style = "Normal", scale = 1 },
+  { family = "Cambria Math", scale = 1.0 },
+})
+config.warn_about_missing_glyphs = false
 
 -- timeout_milliseconds defaults to 1000 and can be omitted
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
