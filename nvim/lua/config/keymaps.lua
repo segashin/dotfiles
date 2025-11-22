@@ -128,4 +128,6 @@ keymap.set('n', '<leader>v;', utils.telescope_to_diffview(tele_builtin.git_branc
         preview_command = { 'git', 'log', '--graph', '--pretty=%h - %s <%an> (%ar)', '--date=relative', '--color=always' }
     }
 }), {})                                                       -- version branch
-keymap.set('n', '<leader>vh', ':DiffviewFileHistory<CR>', {}) -- version history
+keymap.set('n', '<leader>vh', ':DiffviewFileHistory %<CR>', {}) -- version history (current file)
+keymap.set('n', '<leader>vj', utils.file_picker_to_diffview_history(tele_builtin.find_files, {}), {}) -- version file history (pick file)
+keymap.set('n', '<leader>vk', utils.file_browser_to_diffview_history({}), {}) -- version file history (file browser)
