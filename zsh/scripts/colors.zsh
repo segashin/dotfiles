@@ -1,4 +1,8 @@
-export TERM=screen-256color
+# Only set TERM to screen-256color if inside tmux/screen
+# Otherwise, let the terminal emulator set TERM correctly
+if [[ -n "$TMUX" ]] || [[ "$TERM" == "screen"* ]]; then
+  export TERM=screen-256color
+fi
 
 # Remove ls highlight color
 _ls_colors=":ow=01;33" 
