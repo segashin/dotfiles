@@ -12,11 +12,11 @@ return {
                     TabLineSel = { fg = 'none', bg = 'gray4' },
                     TabLine    = { fg = 'none', bg = 'gray24' },
 
-                    -- Core Diff groups
-                    DiffAdd    = { fg = "none", bg = "#2c6f00" },
-                    DiffChange = { fg = "none", bg = "#444444" },
-                    DiffDelete = { fg = "none", bg = "#590f0d" },
-                    DiffText      = { fg = 'none', bg = '#2f3a9c', bold = true },
+                    -- Diff colors
+                    DiffAdd    = { fg = "none", bg = "#115522" },
+                    DiffChange = { fg = "none", bg = "#112233" },
+                    DiffDelete = { fg = "none", bg = "#551144" },
+                    DiffText   = { fg = 'none', bg = '#2222aa', bold = true },
                 }
             end
         })
