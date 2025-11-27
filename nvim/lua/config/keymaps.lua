@@ -102,7 +102,7 @@ keymap.set('n', '<leader>fg', tele_builtin.live_grep, {})
 keymap.set('n', '<leader>fb', tele_builtin.buffers, {})
 
 keymap.set('n', '<leader>f/', tele_builtin.search_history, {})
-keymap.set('n', '<leader>fr', tele_builtin.lsp_references, {})
+-- keymap.set('n', '<leader>fr', tele_builtin.lsp_references, {}) -- not working
 keymap.set('n', '<leader>fw', tele_builtin.treesitter, {})
 
 -- Telescope - git - v (version)
