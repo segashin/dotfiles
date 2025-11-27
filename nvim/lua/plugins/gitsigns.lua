@@ -20,10 +20,13 @@ return {
                 untracked    = { text = '┆' },
             },
             signs_staged_enable          = true,
-            signcolumn                   = true,  -- Toggle with `:Gitsigns toggle_signs`
-            numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`
-            linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`
-            word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
+            signcolumn                   = true, -- Toggle with `:Gitsigns toggle_signs`
+            numhl                        = true, -- Toggle with `:Gitsigns toggle_numhl`
+            linehl                       = true, -- Toggle with `:Gitsigns toggle_linehl`
+            word_diff                    = true, -- Toggle with `:Gitsigns toggle_word_diff`
+            diff_opts                    = {
+                internal = true,                 -- Required for word_diff
+            },
             watch_gitdir                 = {
                 follow_files = true
             },
@@ -52,32 +55,15 @@ return {
                 col = 1
             },
             on_attach                    = function(bufnr)
-                -- local function map(mode, l, r, opts)
-                --     opts = opts or {}
-                --     opts.buffer = bufnr
-                --     vim.keymap.set(mode, l, r, opts)
-                -- end
-
-                -- -- Navigation
-                -- map('n', ']c', function()
-                --     if vim.wo.diff then
-                --         vim.cmd.normal({ ']c', bang = true })
-                --     else
-                --         gitsigns.nav_hunk('next')
-                --     end
-                -- end)
-
-                -- map('n', '[c', function()
-                --     if vim.wo.diff then
-                --         vim.cmd.normal({ '[c', bang = true })
-                --     else
-                --         gitsigns.nav_hunk('prev')
-                --     end
-                -- end)
+                local function map(mode, l, r, opts)
+                    opts = opts or {}
+                    opts.buffer = bufnr
+                    vim.keymap.set(mode, l, r, opts)
+                end
 
                 -- Actions
-                -- map('n', '<leader>vs', gitsigns.stage_hunk)
-                -- map('n', '<leader>vr', gitsigns.reset_hunk)
+                map('n', '<leader>vs', gitsigns.stage_hunk)
+                map('n', '<leader>vr', gitsigns.reset_hunk)
                 -- map('v', '<leader>vs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
                 -- map('v', '<leader>vr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
                 -- map('n', '<leader>hS', gitsigns.stage_buffer)
@@ -91,7 +77,8 @@ return {
                 -- map('n', '<leader>vd', gitsigns.toggle_deleted)
 
                 -- Text object
-                -- map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+                map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+                map('n', '<leader>vw', gitsigns.toggle_linehl)
             end
         })
     end,
