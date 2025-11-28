@@ -120,6 +120,9 @@ keymap.set('n', '<leader>vq', ':DiffviewClose<CR>', {})  -- version quit
 
 keymap.set('n', '<leader>vv', ':DiffviewToggle<CR>', {}) -- verion view
 keymap.set('n', '<leader>vg', utils.plugin_commands_picker, {}) -- plugin commands (git, tree, etc)
+keymap.set('n', '<leader>vt', tele_builtin.commands, {})
+keymap.set('n', '<leader>vm', tele_builtin.keymaps, {})
+keymap.set('n', '<leader>vn', tele_builtin.pickers, {})
 keymap.set('n', '<leader>vl', utils.telescope_to_diffview(tele_builtin.git_commits, '^!', {
     git_command = { 'git', 'log', '--pretty=%h - %s <%an> (%ar)', '--date=relative', '--', '.' }
 }), {}) -- version list
@@ -132,3 +135,5 @@ keymap.set('n', '<leader>v;', utils.telescope_to_diffview(tele_builtin.git_branc
 keymap.set('n', '<leader>vh', ':DiffviewFileHistory %<CR>', {}) -- version history (current file)
 keymap.set('n', '<leader>vj', utils.file_picker_to_diffview_history(tele_builtin.find_files, {}), {}) -- version file history (pick file)
 keymap.set('n', '<leader>vk', utils.file_browser_to_diffview_history({}), {}) -- version file history (file browser)
+
+keymap.set('n', '<leader>nn', ':NoNeckPain<CR>', {}) -- version file history (file browser)
