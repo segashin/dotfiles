@@ -119,6 +119,7 @@ keymap.set('n', '<leader>tt', ':Neotree filesystem toggle<CR>', {})
 keymap.set('n', '<leader>vq', ':DiffviewClose<CR>', {})  -- version quit
 
 keymap.set('n', '<leader>vv', ':DiffviewToggle<CR>', {}) -- verion view
+keymap.set('n', '<leader>vg', utils.plugin_commands_picker, {}) -- plugin commands (git, tree, etc)
 keymap.set('n', '<leader>vl', utils.telescope_to_diffview(tele_builtin.git_commits, '^!', {
     git_command = { 'git', 'log', '--pretty=%h - %s <%an> (%ar)', '--date=relative', '--', '.' }
 }), {}) -- version list
