@@ -1,5 +1,8 @@
 return {
     "catppuccin/nvim",
+    dependencies = {
+        "lewis6991/gitsigns.nvim",
+    },
     name = "catppuccin",
     lazy = false,
     priority = 1000,
