@@ -1,4 +1,5 @@
 require('config.base')
+require('config.ftypes')
 require('config.lazy')
 require('config.ui')
 require('config.keymaps')
