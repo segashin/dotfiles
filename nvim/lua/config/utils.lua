@@ -287,8 +287,4 @@ function M.plugin_commands_picker()
 		end,
 	}):find()
 end
-
--- Keep the old function name for backward compatibility
-M.gitsigns_picker = M.plugin_commands_picker
-
 return M
