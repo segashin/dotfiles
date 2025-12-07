@@ -5,7 +5,7 @@ return {
         local lualine = require('lualine')
         lualine.setup({
             options = {
-                theme = 'papaercolor_dark',
+                theme = 'papercolor_dark',
                 component_separators = { left = '', right = '|' },
                 section_separators = { left = '', right = '' },
                 -- component_separators = { left = '', right = ''},
