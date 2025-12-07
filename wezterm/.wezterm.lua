@@ -4,7 +4,7 @@ local act = wezterm.action
 
 -- config.color_scheme = "OneHalfDark"
 config.color_scheme = "tokyonight_night"
-config.default_domain = 'WSL:FedoraLinux-42'
+config.default_domain = 'WSL:FedoraLinux-43'
 
 config.font = wezterm.font_with_fallback({
   { family = "Hack Nerd Font", style = "Normal", scale = 1 },
