@@ -77,11 +77,11 @@ keymap.set('n', '-', ':<C-u>res -5<CR>', { noremap = true, silent = true })
 keymap.set('n', '<Leader>gs',
     ':<C-u>lua vim.diagnostic.open_float(nil, {close_events = {"CursorMoved" , "InsertLeave"}})<CR>',
     { noremap = true, silent = true })                                                    -- g + s (show)
-keymap.set('n', '<Leader>ga', vim.lsp.buf.code_action, { noremap = true, silent = true }) -- g + a (action)
-keymap.set('n', '<Leader>gg', vim.lsp.buf.hover, { noremap = true, silent = true })       -- g + g (google)
-keymap.set("n", "<Leader>gf", vim.lsp.buf.format, {})                                     -- g + f (format)
--- keymap.set('n', '<Leader>gr', vim.lsp.buf.references, { noremap = true, silent = true })
--- keymap.set('n', '<Leader>gd', vim.lsp.buf.definition, { noremap = true, silent = true }) -- to def
+keymap.set('n', '<Leader>ac', vim.lsp.buf.code_action, { noremap = true, silent = true }) -- g + a (action)
+keymap.set('n', '<Leader>aa', vim.lsp.buf.hover, { noremap = true, silent = true })       -- g + g (google)
+keymap.set("n", "<Leader>af", vim.lsp.buf.format, {})                                     -- g + f (format)
+-- keymap.set('n', '<Leader>ar', vim.lsp.buf.references, { noremap = true, silent = true })
+-- keymap.set('n', '<Leader>ad', vim.lsp.buf.definition, { noremap = true, silent = true }) -- to def
 
 -- jumps
 -- keymap.set('n', '<Leader>nn', '<cmd>ju<CR>', { noremap = true, silent = true })                             -- show jump list
