@@ -72,7 +72,7 @@ return {
                 -- map('n', '<leader>vu', gitsigns.undo_stage_hunk)
                 -- map('n', '<leader>vR', gitsigns.reset_buffer)
                 -- map('n', '<leader>vp', gitsigns.preview_hunk)
-                -- map('n', '<leader>vb', function() gitsigns.blame_line { full = true } end)
+                map('n', '<leader>gb', function() gitsigns.blame_line { full = true } end)
                 -- map('n', '<leader>vt', gitsigns.toggle_current_line_blame)
                 -- map('n', '<leader>vf', gitsigns.diffthis)
                 -- map('n', '<leader>vF', function() gitsigns.diffthis('~') end)
