@@ -62,9 +62,12 @@ return {
                 end
 
                 -- Actions
-                -- map('n', '<leader>gs', gitsigns.stage_hunk)
+                map('n', '<leader><Space>', gitsigns.stage_hunk)
                 -- map('n', '<leader>gr', gitsigns.reset_hunk)
-                map('n', '<leader>gl', gitsigns.toggle_linehl)
+                map('n', '<leader>gl', function()
+                  gitsigns.toggle_linehl()
+                  gitsigns.toggle_word_diff()
+                end)
                 map('n', '<leader>g;', gitsigns.toggle_deleted)
                 -- map('v', '<leader>vs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
                 -- map('v', '<leader>vr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
