@@ -18,7 +18,8 @@ return {
                         "pylsp",
                         "dartls",
                         "yamlls",
-                        "helm_ls,"
+                        "helm_ls",
+                        "gopls",
                     }
                 }
             })
