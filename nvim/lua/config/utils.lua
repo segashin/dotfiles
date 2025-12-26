@@ -105,9 +105,9 @@ function M.plugin_commands_picker()
 	local conf = require('telescope.config').values
 	local actions = require('telescope.actions')
 	local action_state = require('telescope.actions.state')
-	
-	-- List of commands with descriptions and their source
-	local commands = {
+
+	-- Curated list of plugin commands with descriptions
+	local plugin_commands = {
 		-- Gitsigns commands
 		{ plugin = "gitsigns", name = "toggle_signs",              desc = "[Git] Toggle git signs in gutter" },
 		{ plugin = "gitsigns", name = "toggle_numhl",              desc = "[Git] Toggle line number highlighting" },
@@ -220,11 +220,53 @@ function M.plugin_commands_picker()
 		{ plugin = "diagnostic", name = "setloclist",              desc = "[Diag] Diagnostics to loclist" },
 		{ plugin = "diagnostic", name = "setqflist",               desc = "[Diag] Diagnostics to quickfix" },
 	}
-	
+
+	-- Build a set of plugin command names for deduplication
+	local plugin_cmd_names = {}
+	for _, cmd in ipairs(plugin_commands) do
+		if cmd.plugin == "cmd" then
+			-- Extract just the command name (first word) for matching
+			plugin_cmd_names[cmd.name:match("^(%S+)")] = true
+		end
+	end
+
+	-- Fetch all Vim commands and add them
+	local all_commands = {}
+
+	-- Add plugin commands first (they have better descriptions)
+	for _, cmd in ipairs(plugin_commands) do
+		table.insert(all_commands, cmd)
+	end
+
+	-- Add user-defined commands from nvim_get_commands
+	local user_cmds = vim.api.nvim_get_commands({})
+	for name, def in pairs(user_cmds) do
+		-- Skip if already in our curated list
+		if not plugin_cmd_names[name] then
+			table.insert(all_commands, {
+				plugin = "cmd",
+				name = name,
+				desc = def.definition and def.definition ~= "" and def.definition or "[Cmd] " .. name,
+			})
+		end
+	end
+
+	-- Add buffer-local commands
+	local buf_cmds = vim.api.nvim_buf_get_commands(0, {})
+	for name, def in pairs(buf_cmds) do
+		if not plugin_cmd_names[name] then
+			table.insert(all_commands, {
+				plugin = "cmd",
+				name = name,
+				desc = def.definition and def.definition ~= "" and def.definition or "[Buf] " .. name,
+			})
+		end
+	end
+
 	pickers.new({}, {
-		prompt_title = 'Plugin Commands',
+		prompt_title = 'Commands',
 		finder = finders.new_table {
-			results = commands,
+			results = all_commands,
 			entry_maker = function(entry)
 				return {
 					value = entry,

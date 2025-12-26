@@ -111,8 +111,7 @@ keymap.set('n', '<leader>vp', tele_builtin.git_branches, {})
 
 -- Telescope - file browser
 keymap.set('n', '<leader>fv', ':<C-u>Telescope file_browser path=%:p:h slsect_buffer=true<CR>', {})
-keymap.set('n', '<leader>-', utils.plugin_commands_picker, {}) -- plugin commands (git, tree, etc)
-keymap.set('n', '<leader>;', tele_builtin.commands, {})
+keymap.set('n', '<leader>;', utils.plugin_commands_picker, {}) -- all commands (plugin + vim)
 
 -- Neotree
 keymap.set('n', '<leader>tt', ':Neotree filesystem toggle<CR>', {})
@@ -124,8 +123,6 @@ keymap.set('n', '<leader>tt', ':Neotree filesystem toggle<CR>', {})
 keymap.set('n', '<leader>vq', ':DiffviewClose<CR>', {})  -- version quit
 
 keymap.set('n', '<leader>vv', ':DiffviewToggle<CR>', {}) -- verion view
-keymap.set('n', '<leader>vm', tele_builtin.keymaps, {})
-keymap.set('n', '<leader>vn', tele_builtin.pickers, {})
 keymap.set('n', '<leader>vl', utils.telescope_to_diffview(tele_builtin.git_commits, '^!', {
     git_command = { 'git', 'log', '--pretty=%h - %s <%an> (%ar)', '--date=relative', '--', '.' }
 }), {}) -- version list
