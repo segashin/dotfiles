@@ -219,6 +219,22 @@ function M.plugin_commands_picker()
 		{ plugin = "diagnostic", name = "goto_prev",               desc = "[Diag] Previous diagnostic" },
 		{ plugin = "diagnostic", name = "setloclist",              desc = "[Diag] Diagnostics to loclist" },
 		{ plugin = "diagnostic", name = "setqflist",               desc = "[Diag] Diagnostics to quickfix" },
+
+		-- Lazy.nvim commands
+		{ plugin = "cmd", name = "Lazy",                           desc = "[Plugin] Open Lazy plugin manager" },
+		{ plugin = "cmd", name = "Lazy sync",                      desc = "[Plugin] Sync plugins (install + update + clean)" },
+		{ plugin = "cmd", name = "Lazy update",                    desc = "[Plugin] Update plugins" },
+		{ plugin = "cmd", name = "Lazy clean",                     desc = "[Plugin] Remove unused plugins" },
+		{ plugin = "cmd", name = "Lazy profile",                   desc = "[Plugin] Show plugin load times" },
+
+		-- Mason commands
+		{ plugin = "cmd", name = "Mason",                          desc = "[LSP] Open Mason package manager" },
+		{ plugin = "cmd", name = "MasonUpdate",                    desc = "[LSP] Update Mason registries" },
+		{ plugin = "cmd", name = "MasonLog",                       desc = "[LSP] Show Mason log" },
+
+		-- Treesitter commands
+		{ plugin = "cmd", name = "TSUpdate",                       desc = "[TS] Update treesitter parsers" },
+		{ plugin = "cmd", name = "TSInstallInfo",                  desc = "[TS] Show installed parsers" },
 	}
 
 	-- Build a set of plugin command names for deduplication
