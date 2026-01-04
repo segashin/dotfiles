@@ -11,7 +11,7 @@ return {
             -- Line colors representing git status
             -- hl.DiffDelete             = { fg = "none", bg = "#551144" }
             -- hl.DiffText               = { fg = 'none', bg = '#2222aa', bold = true }
-            
+
             -- Add
             hl.DiffAdd                = { fg = "none", bg = "#222f2f" } -- Unstaged add
             hl.GitSignsStagedAdd      = { fg = "none", bg = "#223524" } -- Staged add indicator
