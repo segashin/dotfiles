@@ -18,7 +18,8 @@ return {
                         "pylsp",
                         "dartls",
                         "yamlls",
-                        "helm_ls,"
+                        "helm_ls",
+                        "gopls",
                     }
                 }
             })
@@ -108,6 +109,7 @@ return {
                     }
                 }
             })
+            lspconfig.gopls.setup({})
         end
     }
 }

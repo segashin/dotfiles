@@ -74,14 +74,14 @@ keymap.set('n', '+', ':<C-u>res +5<CR>', { noremap = true, silent = true })
 keymap.set('n', '-', ':<C-u>res -5<CR>', { noremap = true, silent = true })
 
 -- lsp
-keymap.set('n', '<Leader>gs',
+keymap.set('n', '<Leader>as',
     ':<C-u>lua vim.diagnostic.open_float(nil, {close_events = {"CursorMoved" , "InsertLeave"}})<CR>',
     { noremap = true, silent = true })                                                    -- g + s (show)
-keymap.set('n', '<Leader>ga', vim.lsp.buf.code_action, { noremap = true, silent = true }) -- g + a (action)
-keymap.set('n', '<Leader>gg', vim.lsp.buf.hover, { noremap = true, silent = true })       -- g + g (google)
-keymap.set("n", "<Leader>gf", vim.lsp.buf.format, {})                                     -- g + f (format)
--- keymap.set('n', '<Leader>gr', vim.lsp.buf.references, { noremap = true, silent = true })
--- keymap.set('n', '<Leader>gd', vim.lsp.buf.definition, { noremap = true, silent = true }) -- to def
+keymap.set('n', '<Leader>ac', vim.lsp.buf.code_action, { noremap = true, silent = true }) -- g + a (action)
+keymap.set('n', '<Leader>aa', vim.lsp.buf.hover, { noremap = true, silent = true })       -- g + g (google)
+keymap.set("n", "<Leader>af", vim.lsp.buf.format, {})                                     -- g + f (format)
+-- keymap.set('n', '<Leader>ar', vim.lsp.buf.references, { noremap = true, silent = true })
+-- keymap.set('n', '<Leader>ad', vim.lsp.buf.definition, { noremap = true, silent = true }) -- to def
 
 -- jumps
 -- keymap.set('n', '<Leader>nn', '<cmd>ju<CR>', { noremap = true, silent = true })                             -- show jump list
@@ -102,7 +102,7 @@ keymap.set('n', '<leader>fg', tele_builtin.live_grep, {})
 keymap.set('n', '<leader>fb', tele_builtin.buffers, {})
 
 keymap.set('n', '<leader>f/', tele_builtin.search_history, {})
-keymap.set('n', '<leader>fr', tele_builtin.lsp_references, {})
+-- keymap.set('n', '<leader>fr', tele_builtin.lsp_references, {}) -- not working
 keymap.set('n', '<leader>fw', tele_builtin.treesitter, {})
 
 -- Telescope - git - v (version)
@@ -111,27 +111,29 @@ keymap.set('n', '<leader>vp', tele_builtin.git_branches, {})
 
 -- Telescope - file browser
 keymap.set('n', '<leader>fv', ':<C-u>Telescope file_browser path=%:p:h slsect_buffer=true<CR>', {})
+keymap.set('n', '<leader>;', utils.plugin_commands_picker, {}) -- all commands (plugin + vim)
 
--- Neotrea
+-- Neotree
 keymap.set('n', '<leader>tt', ':Neotree filesystem toggle<CR>', {})
 
--- Diffview
-keymap.set('n', '<leader>vq', ':DiffviewClose<CR>', {})                                        -- version quit
+-- GitSigns
+-- all commands starting with <leader>g are reserved for gitsigns and git related commands
 
-keymap.set('n', '<leader>vv', ':DiffviewToggle<CR>', {})                                       -- verion view
+-- Diffview
+keymap.set('n', '<leader>vq', ':DiffviewClose<CR>', {})  -- version quit
+
+keymap.set('n', '<leader>vv', ':DiffviewToggle<CR>', {}) -- verion view
 keymap.set('n', '<leader>vl', utils.telescope_to_diffview(tele_builtin.git_commits, '^!', {
-	git_command = { 'git', 'log', '--pretty=%h - %s <%an> (%ar)', '--date=relative', '--', '.' }
+    git_command = { 'git', 'log', '--pretty=%h - %s <%an> (%ar)', '--date=relative', '--', '.' }
 }), {}) -- version list
 keymap.set('n', '<leader>v;', utils.telescope_to_diffview(tele_builtin.git_branches, '', {
-	git_command = { 'git', 'branch', '--sort=-committerdate', '--format=%(refname:short)' },
-	preview = {
-		preview_command = { 'git', 'log', '--graph', '--pretty=%h - %s <%an> (%ar)', '--date=relative', '--color=always' }
-	}
-}), {})      -- version branch
+    git_command = { 'git', 'branch', '--sort=-committerdate', '--format=%(refname:short)' },
+    preview = {
+        preview_command = { 'git', 'log', '--graph', '--pretty=%h - %s <%an> (%ar)', '--date=relative', '--color=always' }
+    }
+}), {})                                                       -- version branch
+keymap.set('n', '<leader>vh', ':DiffviewFileHistory %<CR>', {}) -- version history (current file)
+keymap.set('n', '<leader>vj', utils.file_picker_to_diffview_history(tele_builtin.find_files, {}), {}) -- version file history (pick file)
+keymap.set('n', '<leader>vk', utils.file_browser_to_diffview_history({}), {}) -- version file history (file browser)
 
-keymap.set('n', '<leader>vh', ':DiffviewFileHistory<CR>', {})                                  -- version history
--- keymap.set('n', '<leader>vj', utils.telescope_to_diffview_file_history(tele_builtin.git_commits), {})   -- version history (j)
--- keymap.set('n', '<leader>vk', utils.telescope_to_diffview_file_history(tele_builtin.git_branches), {}) -- version history (k)
-
--- keymap.set('n', '<leader>vfc', ':DiffviewFileHistory %<CR>', {})
--- keymap.set('n', '<leader>vfbl', ':DiffviewFileHistory % --base=LOCAL<CR>', {})
+keymap.set('n', '<leader>nn', ':NoNeckPain<CR>', {}) -- version file history (file browser)
