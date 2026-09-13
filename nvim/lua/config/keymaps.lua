@@ -118,6 +118,7 @@ keymap.set('n', '<leader>tt', ':Neotree filesystem toggle<CR>', {})
 
 -- GitSigns
 -- all commands starting with <leader>g are reserved for gitsigns and git related commands
+keymap.set('n', '<leader>cc', ':Gitsigns stage_hunk<CR>', {})
 
 -- Diffview
 keymap.set('n', '<leader>vq', ':DiffviewClose<CR>', {})  -- version quit
@@ -136,4 +137,4 @@ keymap.set('n', '<leader>vh', ':DiffviewFileHistory %<CR>', {}) -- version histo
 keymap.set('n', '<leader>vj', utils.file_picker_to_diffview_history(tele_builtin.find_files, {}), {}) -- version file history (pick file)
 keymap.set('n', '<leader>vk', utils.file_browser_to_diffview_history({}), {}) -- version file history (file browser)
 
-keymap.set('n', '<leader>nn', ':NoNeckPain<CR>', {}) -- version file history (file browser)
+keymap.set('n', '<leader>nn', ':NoNeckPain<CR>', {})
